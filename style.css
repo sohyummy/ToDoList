@@ -1,0 +1,187 @@
+/* style.css */
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #17153B;
+    color: #C8ACD6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center
+}
+
+#date-time-container {
+    display: flex;
+    justify-content: space-between; /* Space out the date and clock */
+    padding: 16px;
+}
+
+#date, #clock {
+    flex: 1; /* Ensure each takes up equal space */
+    text-align: center; /* Center text within each item */
+    font-size: 1em;
+    color: #C8ACD6;
+}
+
+#date {
+    text-align: left; /* Align text to the left for the date */
+}
+
+#clock {
+    text-align: right; /* Align text to the right for the clock */
+}
+Expla
+
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center the items horizontally */
+    width: 100%;
+    max-width: 600px; /* Set a max width for the content */
+    margin: 0 auto; /* Center the whole layout on the page */
+}
+
+.todo-container, .timer-container {
+    width: 400px;
+    background-color: #2E236C; /* Light background for separation */
+    padding: 24px;
+    margin-bottom: 24px; /* Space between to-do list and timer containers */
+    border-radius: 16px; /* Rounded corners for better appearance */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #433D8B;
+    border: 1px solid #C8ACD6;
+    color: #C8ACD6;
+    border-radius: 14px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's width */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #433D8B;
+    padding: 16px;
+    margin: 8px 0;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+li:hover{
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4)
+}
+
+li button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+li button:hover {
+    background-color: #c9302c;
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#timer-controls {
+    text-align: center;
+}
+
+#countdown {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #C8ACD6;
+    text-align: center;
+}
+
+button.timer-button {
+    padding: 16px 16px;
+    margin-right: 10px;
+    background-color: #17153B;
+    color: #C8ACD6;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+button.timer-button:hover {
+    background-color: #433D8B;
+    ;
+}
+
+#countdown p {
+    margin: 0;
+}
+
+button.timer-button:hover {
+    background-color: #433D8B;
+}
+
+button#stop-timer {
+    padding: 16px 16px;
+    background-color: #FF4C4C; /* Red color for stop button */
+}
+
+button#stop-timer:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+#stop-timer {
+    background-color: #ff0000; /* Normal state color */
+    color: white; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#stop-timer.disabled {
+    background-color: #ccc; /* Greyed-out color */
+    color: #666; /* Greyed-out text color */
+    cursor: not-allowed;
+}
+
+#stop-timer.disabled:hover {
+    background-color: #ccc; /* Ensure it doesn't change color on hover */
+    color: #666; /* Ensure text color stays greyed out */
+}
