@@ -6,6 +6,8 @@
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+
 
 </head>
 <body>
@@ -30,19 +32,21 @@
         <!-- Timer Section -->
         <div class="timer-container">
             <div id="countdown">
-                <h3><span id="time">00:00</span></h3>
+                <h2><span id="time">Focus Timer</span></h2>
             </div>
             
             <div id="timer-controls">
-                <button class="timer-button" data-time="300">5 Min</button>
-                <button class="timer-button" data-time="600">10 Min</button>
-                <button class="timer-button" data-time="1200">20 Min</button>
-                <button class="timer-button" data-time="1800">30 Min</button>
+                <button class="timer-button" data-time="900">15 mins</button>
+                <button class="timer-button" data-time="1800">30 mins</button>
+                <button class="timer-button" data-time="3600">60 mins</button>
                 <button id="stop-timer"><i class="fas fa-stop"></i></button>
             </div>
         </div>
     </div>    
     
     <script src="script.js"></script>
+
+    <audio id="completion-sound" src="complete.mp3"></audio>
+
 </body>
 </html>
