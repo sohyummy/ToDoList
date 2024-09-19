@@ -173,3 +173,23 @@ document.addEventListener("DOMContentLoaded", () => {
         stopTimer();
     });
 });
+
+document.getElementById('theme-switcher').addEventListener('click', function() {
+    // Toggle the light theme class
+    document.body.classList.toggle('light-theme');
+
+    // Toggle the icon between sun and moon
+    if (document.body.classList.contains('light-theme')) {
+        this.classList.remove('fa-sun');
+        this.classList.add('fa-moon');
+    } else {
+        this.classList.remove('fa-moon');
+        this.classList.add('fa-sun');
+    }
+});
+
+// Set initial state to have the sun icon when starting in dark mode
+window.onload = function() {
+    const themeSwitcher = document.getElementById('theme-switcher');
+    themeSwitcher.classList.add('fa-sun');
+};

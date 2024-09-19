@@ -1,74 +1,126 @@
-/* style.css */
+/* Define CSS variables for colors */
+:root {
+    --color-background: #222831;
+    --color-secondary-bg: #31363F;
+    --color-primary-text: #EEEEEE;
+    --color-input-bg: #222831;
+    --color-button-hover: #3a4453;
+    --color-danger: #FF4C4C;
+    --color-danger-hover: #da4141;
+    --color-disabled-bg: #ccc;
+    --color-disabled-text: #666;
+}
+
+.light-theme {
+    --color-background: #f0f0f0;
+    --color-secondary-bg: #ffffff;
+    --color-primary-text: #333333;
+    --color-input-bg: #f0f0f0;
+    --color-button-hover: #d1d1d1;
+    --color-danger: #FF4C4C;
+    --color-danger-hover: #da4141;
+    --color-disabled-bg: #e0e0e0;
+    --color-disabled-text: #999999;
+}
+
+/* Global Styles */
 body {
     font-family: Helvetica, sans-serif;
-    background-color: #17153B;
-    color: #C8ACD6;
+    background-color: var(--color-background);
+    color: var(--color-primary-text);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    text-align: center
+    text-align: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+button, input, .todo-container, .timer-container {
+    transition: background-color 0.5s ease, color 0.5s ease;
+    transition-delay: 50ms;
+}
+
+#theme-switcher {
+    position: absolute;
+    top: 40px;
+    right: 30px; /* Adjust this value based on your layout */
+    font-size: 24px; /* Adjust the size of the icon */
+    color: var(--color-primary-text);
+    cursor: pointer;
+    padding: 16px;
+    background-color: var(--color-secondary-bg);
+    border-radius: 16px;
+}
+
+#theme-switcher:hover {
+    background-color: var(--color-button-hover);
+}
+
+/* Date and Time Container */
 #date-time-container {
     display: flex;
-    justify-content: space-between; /* Space out the date and clock */
+    justify-content: space-between;
     padding: 16px;
     width: 400px;
 }
 
 #date, #clock {
-    flex: 1; /* Ensure each takes up equal space */
-    text-align: center; /* Center text within each item */
+    flex: 1;
+    text-align: center;
     font-size: 1em;
-    color: #C8ACD6;
+    color: var(--color-primary-text);
 }
 
 #date {
-    text-align: left; /* Align text to the left for the date */
+    text-align: left;
 }
 
 #clock {
-    text-align: right; /* Align text to the right for the clock */
+    text-align: right;
 }
 
+/* Main Container */
 .main-container {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Center the items horizontally */
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    max-width: 600px; /* Set a max width for the content */
-    margin: 0 auto; /* Center the whole layout on the page */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+/* To-do and Timer Container */
 .todo-container, .timer-container {
     width: 400px;
-    background-color: #2E236C; /* Light background for separation */
+    background-color: var(--color-secondary-bg);
     padding: 24px;
-    margin-bottom: 24px; /* Space between to-do list and timer containers */
-    border-radius: 32px; /* Rounded corners for better appearance */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 24px;
+    border-radius: 32px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     margin-bottom: 24px;
 }
 
+/* Input Styles */
 input[type="text"] {
     font-size: 16px;
     width: 100%;
     padding: 16px;
-    margin-bottom: 0px;
-    background-color: #433D8B;
-    border: 2px solid #C8ACD6;
-    color: #C8ACD6;
+    margin-bottom: 0;
+    background-color: var(--color-input-bg);
+    border: 2px solid var(--color-primary-text);
+    color: var(--color-primary-text);
     border-radius: 16px;
-    box-sizing: border-box; /* Ensures padding and border are included in the element's width */
+    box-sizing: border-box;
 }
 
+/* Button Styles */
 button {
-    padding: 10px 20px;
+    padding: 20px 20px;
     background-color: none;
     color: white;
     border: none;
@@ -80,14 +132,14 @@ button:hover {
     background-color: none;
 }
 
-
+/* To-Do List Styles */
 ul {
     list-style-type: none;
     padding: 0;
 }
 
 li {
-    background-color: #433D8B;
+    background-color: var(--color-input-bg);
     padding: 16px;
     margin-top: 16px;
     border-radius: 16px;
@@ -102,26 +154,23 @@ li button {
     cursor: pointer;
     font-size: 18px;
     padding: 5px;
-    display: inline-block;
 }
 
-/* Style for the container holding the radio button and task text */
 li.task-item .task-container {
     display: flex;
     align-items: center;
     flex-grow: 1;
 }
 
-/* Style for the radio button */
 li.task-item .task-container .fa-circle,
 li.task-item .task-container .fa-check-circle {
     font-size: 24px;
     cursor: pointer;
-    color: #C8ACD6; /* Default color for the radio button */
+    color: var(--color-primary-text);
 }
 
 li.task-item.completed .task-container .fa-check-circle {
-    color: #C8ACD6; /* Color for the checked radio button */
+    color: var(--color-button-hover);
 }
 
 li.task-item .task-container .task-text {
@@ -136,7 +185,7 @@ li.task-item.completed .task-text {
 
 li.task-item .delete {
     cursor: pointer;
-    color: #FF4C4C;
+    color: var(--color-danger);
     margin-left: 16px;
 }
 
@@ -146,13 +195,14 @@ li.task-item .delete i {
 
 .edit-input {
     width: 80%;
-    padding: 0px;
+    padding: 0;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 3px;
     outline: none;
 }
 
+/* Timer Styles */
 #task-list {
     list-style-type: none;
     padding: 0;
@@ -164,57 +214,53 @@ li.task-item .delete i {
 }
 
 #countdown {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     font-size: 16px;
-    color: #C8ACD6;
+    color: var(--color-primary-text);
     text-align: center;
 }
 
+/* Timer Button Styles */
 button.timer-button {
-    padding: 16px 16px;
+    padding: 16px;
     margin-right: 10px;
-    background-color: #17153B;
-    color: #C8ACD6;
+    background-color: var(--color-input-bg);
+    color: var(--color-primary-text);
     border: none;
     border-radius: 16px;
     cursor: pointer;
     margin-bottom: 16px;
+    font-size: 16px;
 }
 
 button.timer-button:hover {
-    background-color: #433D8B;
+    background-color: var(--color-button-hover);
 }
 
 button#stop-timer {
-    padding: 16px 16px;
-    background-color: #FF4C4C; /* Red color for stop button */
-}
-
-button#stop-timer:hover {
-    background-color: #cc0000; /* Darker red on hover */
-}
-
-#stop-timer {
-    background-color: #ff0000; /* Normal state color */
-    color: white; /* Text color */
+    background-color: var(--color-danger);
+    color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 16px 20px;
     cursor: pointer;
     font-size: 16px;
 }
 
+button#stop-timer:hover {
+    background-color: var(--color-danger-hover);
+}
+
 #stop-timer.disabled {
-    background-color: #ccc; /* Greyed-out color */
-    color: #666; /* Greyed-out text color */
+    background-color: var(--color-disabled-bg);
+    color: var(--color-disabled-text);
     cursor: not-allowed;
 }
 
 #stop-timer.disabled:hover {
-    background-color: #ccc; /* Ensure it doesn't change color on hover */
-    color: #666; /* Ensure text color stays greyed out */
+    background-color: var(--color-disabled-bg);
+    color: var(--color-disabled-text);
 }
 
 .timer-button.active {
-    box-shadow: inset 0 0 0 2px #C8ACD6;
+    box-shadow: inset 0 0 0 2px var(--color-primary-text);
 }
